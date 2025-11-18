@@ -140,7 +140,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-11-13T09:08:00.000Z">
-<meta property="article:modified_time" content="2025-11-13T10:42:14.654Z">
+<meta property="article:modified_time" content="2025-11-18T14:03:48.500Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="CSAPP">
 <meta name="twitter:card" content="summary">
@@ -536,8 +536,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-11-13 18:42:14</span>
-            <span class="mobile">2025-11-13 18:42:14</span>
+            <span class="desktop">2025-11-18 22:03:48</span>
+            <span class="mobile">2025-11-18 22:03:48</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -559,12 +559,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>639 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.4k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>2 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>8 Mins</span>
         </span>
     
     
@@ -583,18 +583,53 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="第一章-计算机漫游"><a href="#第一章-计算机漫游" class="headerlink" title="第一章 计算机漫游"></a>第一章 计算机漫游</h2><h3 id="1-1-信息就是位-上下文"><a href="#1-1-信息就是位-上下文" class="headerlink" title="1.1 信息就是位+上下文"></a>1.1 信息就是位+上下文</h3><p>1.源程序是一个由值0和1组成的比特序列<del>（我觉得比特比位好说一点？）</del></p>
+			<h2 id="第一章-计算机漫游"><a href="#第一章-计算机漫游" class="headerlink" title="第一章 计算机漫游"></a>第一章 计算机漫游</h2><h3 id="1-1-信息就是位-上下文"><a href="#1-1-信息就是位-上下文" class="headerlink" title="1.1 信息就是位+上下文"></a>1.1 信息就是位+上下文</h3><p>1.源程序是一个由值0和1组成的比特序列<del class="mask">（我觉得比特比位好说一点？）</del></p>
 <p>2.一个字节由8个比特组成，一个比特只能由0和1表示</p>
 <p>3.大部分的计算机系统都会用ASCLL编码来表示文本中的字符（ASCLL编码再转换成二进制，那岂不是满屏的0和1）</p>
 <p>4.由ASCLL字符组成的文件才是文本文件，其他的都叫二进制文件</p>
 <p>5.在不同的上下文中，一个相同的字节序列可能表示不同的字符，所以区分不同的数据对象只能通过上下文来看</p>
-<h3 id="1-2程序被其他程序翻译成不同的格式"><a href="#1-2程序被其他程序翻译成不同的格式" class="headerlink" title="1.2程序被其他程序翻译成不同的格式"></a>1.2程序被其他程序翻译成不同的格式</h3><p><del>（这里拿c语言程序举的例子，别的语言过程或许应该差不多）</del></p>
-<p>1.程序中的每一条C语句都必须被其他程序转化成一系列的低级机器语言指令，<del>（应该就是转化成只含0和1的格式？）</del>这些指令也按照一种格式为可执行目标程序（目标文件）进行打包，然后以二进制磁盘文件的形式存放</p>
-<p>2.源程序文件翻译成可执行文件需要四个阶段<del>（也就是通常说的编译？）</del>，执行这四个阶段的程序构成了编译系统</p>
-<p>a.预处理阶段：根据以字符#开头的命令，修改原始的c程序，得到的c程序以.i作为文件扩展名，仍是一个文本文件。</p>
-<p>b.编译阶段：编译器包含一个汇编语言程序，大概会有词法分析，语法分析，语义分析，中间代码生成，优化，目标代码生成<del>（有点抽象）</del>，将.i文件翻译成依旧是文本文件.s文件</p>
-<p>c.汇编阶段：汇编器将高级语言翻译成机器语言指令，将这些文件按照固定的规则打包成具有可重定位目标程序格式的.o二进制文件，这个文件在文本编辑器中会显示一串乱码。</p>
-<p>d.链接阶段：因为程序中会调用其他函数，这个函数可能存在于一个单独编译好的文件里，这个文件就需要被连接器合并到我们的.o程序中，最终得到可执行目标文件，可以被加载到内存中，在系统中执行。</p>
+<h3 id="1-2-程序被其他程序翻译成不同的格式"><a href="#1-2-程序被其他程序翻译成不同的格式" class="headerlink" title="1.2 程序被其他程序翻译成不同的格式"></a>1.2 程序被其他程序翻译成不同的格式</h3><p><del class="mask">（这里拿c语言程序举的例子，别的语言过程或许应该差不多）</del></p>
+<p>1.程序中的每一条C语句都必须被其他程序转化成一系列的低级机器语言指令，<del class="mask">（应该就是转化成只含0和1的格式？）</del>这些指令也按照一种格式为可执行目标程序（目标文件）进行打包，然后以二进制磁盘文件的形式存放</p>
+<p>2.源程序文件翻译成可执行文件需要四个阶段<del class="mask">（也就是通常说的编译？）</del>，执行这四个阶段的程序构成了编译系统</p>
+<p>a.预处理阶段：根据以字符#开头的命令，修改原始的c程序，得到的c程序以<code>.i</code>作为文件扩展名，仍是一个文本文件。</p>
+<p>b.编译阶段：编译器包含一个汇编语言程序，大概会有词法分析，语法分析，语义分析，中间代码生成，优化，目标代码生成<del class="mask">（有点抽象）</del>，将<code>.i</code>文件翻译成依旧是文本文件<code>.s</code>文件</p>
+<p>c.汇编阶段：汇编器将高级语言翻译成机器语言指令，将这些文件按照固定的规则打包成具有可重定位目标程序格式的<code>.o</code>二进制文件，这个文件在文本编辑器中会显示一串乱码。</p>
+<p>d.链接阶段：因为程序中会调用其他函数，这个函数可能存在于一个单独编译好的文件里，这个文件就需要被连接器合并到我们的<code>.o</code>程序中，最终得到可执行目标文件，可以被加载到内存中，在系统中执行。</p>
+<h3 id="1-3-了解编译系统如何工作是大有益处的"><a href="#1-3-了解编译系统如何工作是大有益处的" class="headerlink" title="1.3 了解编译系统如何工作是大有益处的"></a>1.3 了解编译系统如何工作是大有益处的</h3><p><del class="mask">（意义方面，随便写写算了）</del></p>
+<p>1.优化程序性能</p>
+<p>2.理解链接时出现的错误</p>
+<p>3.避免安全漏洞</p>
+<h3 id="1-4-处理器读并解释储存在内存中的指令"><a href="#1-4-处理器读并解释储存在内存中的指令" class="headerlink" title="1.4 处理器读并解释储存在内存中的指令"></a>1.4 处理器读并解释储存在内存中的指令</h3><p>1.shell是一个命令行解释器，<del class="mask">（windows的powershell应该也是一个类型的）</del>会输出一个提示符<code>&gt;</code>来等待命令的输入。如果该命令行的第一个单词不是内置的shell命令，那么shell就会假设这是一个可执行文件的名字，对这个文件加载并运行。</p>
+<p>2.计算机系统的硬件组成 </p>
+<p>a.cpu（中央处理单元&#x2F;处理器）：解释（或执行）存储在主存中指令的引擎。</p>
+<p>i)PC（程序计数器）：pc是一个大小为一个4字节或者8字节的存储设备（或者寄存器），里面存放的是某一条指令的地址。在任何时刻，pc都指向主存中的某条机器语言指令。处理器从系统通电开始，一直在不断地执行程序计数器指向的指令再更新pc，使其指向下一条指令。（这个下一条指令跟刚刚执行的指令比不一定相邻）</p>
+<p>ii）寄存器文件：cpu内部的存储设备，有一些单字长的寄存器构成。每个寄存器都有自己唯一的名字。寄存器相当于一个临时存放数据的空间。</p>
+<p>iii）ALU:，能够计算新的数据和地址值，会复制寄存器的内容进行算术运算<del class="mask">（会不会也有别的运算？）</del>，并且将结果存放到一个寄存器中，来覆盖其中一个寄存器原来的内容。</p>
+<p>b.主存（内存）：一个临时存储设备。处理器在执行程序时，内存主要用来存放程序指令以及程序处理的数据。物理上来讲，内存是由一组动态随机存取存储器芯片组成。逻辑上说，内存是一个从零开始的大数据，每个字节都有对应的地址。</p>
+<p>c.总线：内存和处理器通过总线来进行数据传输。总线实际上贯穿了整个计算机系统，负责携带信息字节并负责在各个部件间传递。通常总线被设计成传送定长的字节块，也就是字。32位的机器，一个字长是4个字节；64位的机器，一个字长是8个字节</p>
+<p>d.I&#x2F;O设备（输入&#x2F;输出设备）：键盘，鼠标，显示器，磁盘等都是。每个输入输出设备都通过一个控制器或者适配器与I&#x2F;O总线相连。控制器和适配器的主要区别是在于它们的封装方式。不过两者的功能都是在I&#x2F;O总线和I&#x2F;O设备之间传递数据。</p>
+<p>3.hello程序的运行：</p>
+<p>在shell中输入“.&#x2F;hello”——shell将字符读入寄存器，然后处理器将存放到内存中——敲下回车键——shell知道我们结束了命令的输入——shell执行一系列指令来加载可执行的hello文件——这些指令将hello中的数据-“hello，world&#x2F;n”和代码从磁盘复制到内存（复制过程会用到DMA-直接存储器存取技术，数据可以不经过处理器，从磁盘直接达到内存）——当可执行文件hello中的代码和数据被加载到内存中，处理器就开始执行main函数中的代码——cpu会将“hello，world&#x2F;n”这个字符串从内存复制到寄存器文件，然后再从寄存器文件复制到显示设备——最终显示在屏幕上</p>
+<h3 id="1-5-高速缓存至关重要"><a href="#1-5-高速缓存至关重要" class="headerlink" title="1.5 高速缓存至关重要"></a>1.5 高速缓存至关重要</h3><p>1.系统在运行程序时花费了大量时间把信息从一个地方挪到另一个地方</p>
+<p>2.通常情况下，大容量的存储设备的存取速度要比小容量的慢，而快速设备的造价远高于同类的低速设备</p>
+<p>3.高速缓存存储器：作为一个暂时的集结区域，会存放处理器近期可能会需要的信息。处理能力比较强的处理器，一般有三级高速缓存：L1 cache,L2 cache,L3 cache。L1 cache的访问速度与访问寄存器文件几乎一样快，容量大小为数万字节（kb级别）；L2 cache的访问速度是L1 cache的5倍，容量大小在数十万到数百万字节之间；L3 cache的容量更大，同样访问速度也更慢</p>
+<h3 id="1-6-存储设备形成层次结构"><a href="#1-6-存储设备形成层次结构" class="headerlink" title="1.6 存储设备形成层次结构"></a>1.6 存储设备形成层次结构</h3><p>每个计算机系统中的存储设备都被组织成了一个存储器层次结构，存储器层次结构的主要思想是上一层存储设备是下一层存储设备的高速缓存<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../images/v2-8206a1d433ac8108bacff70573348303_r.png"
+                      alt="v2-8206a1d433ac8108bacff70573348303_r"
+                ></p>
+<h3 id="1-7-操作系统管理硬件"><a href="#1-7-操作系统管理硬件" class="headerlink" title="1.7 操作系统管理硬件"></a>1.7 操作系统管理硬件</h3><p>1.操作系统可以看成是应用程序和硬件之间插入的一层软件，所有应用程序对软件的操作尝试都必须通过操作系统</p>
+<p>2.操作系统有两个基本功能：</p>
+<p>a.防止硬件被失控的应用程序滥用</p>
+<p>b.向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备</p>
+<p>3.操作系统引入了几个抽象的概念<del class="mask">（这个抽象是平常说的那种抽象吗）</del>：文件是对I&#x2F;O设备的抽象表示，虚拟内存是对主存和磁盘I&#x2F;O设备的抽象表示，进程则是对处理器、主存和I&#x2F;O设备的抽象表示。</p>
+<p>4.进程：进程是操作系统对一个正在运行的程序的一种抽象。</p>
+<p>a.并发运行是说一个进程的指令和另一个进程的指令是交错进行的，操作系统实现这种交错执行的机制成为上下文切换。</p>
+<p>b.操作系统保持跟踪进程运行所需的所有状态信息，这种状态也就是上下文，包括许多信息。当操作系统决定要把控制权从当前进程转移到某个新进程时，就会进行上下文切换</p>
+<p>c.上下文切换：保存当前进程的上下文，恢复新进程的上下文，然后将控制权传递到新进程。新进程就会从它上次停止的地方开始</p>
+<p>d.实现进程这个抽象概念需要低级硬件和操作系统软件之间的紧密合作。</p>
+<p>5.线程：在现代操作系统中，一个进程实际上由多个成为线程的执行单元组成。每个线程都运行在进程的上下文中，共享代码和数据。多线程之间比多进程之间更容易共享数据，线程一般来说都比进程更高效。</p>
 
 		</div>
 
@@ -609,7 +644,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-11-13 18:42:14
+                    :</strong> 2025-11-18 22:03:48
             </li>
         
         <li>
@@ -717,7 +752,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">CSAPP阅读笔记&amp;重点摘要</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%BC%AB%E6%B8%B8"><span class="nav-text">第一章 计算机漫游</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BF%A1%E6%81%AF%E5%B0%B1%E6%98%AF%E4%BD%8D-%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-text">1.1 信息就是位+上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-text">1.2程序被其他程序翻译成不同的格式</span></a></li></ol></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%BC%AB%E6%B8%B8"><span class="nav-text">第一章 计算机漫游</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BF%A1%E6%81%AF%E5%B0%B1%E6%98%AF%E4%BD%8D-%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-text">1.1 信息就是位+上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-text">1.2 程序被其他程序翻译成不同的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E4%BA%86%E8%A7%A3%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E6%98%AF%E5%A4%A7%E6%9C%89%E7%9B%8A%E5%A4%84%E7%9A%84"><span class="nav-text">1.3 了解编译系统如何工作是大有益处的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%BB%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%82%A8%E5%AD%98%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-text">1.4 处理器读并解释储存在内存中的指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E8%87%B3%E5%85%B3%E9%87%8D%E8%A6%81"><span class="nav-text">1.5 高速缓存至关重要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%BD%A2%E6%88%90%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-text">1.6 存储设备形成层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E7%A1%AC%E4%BB%B6"><span class="nav-text">1.7 操作系统管理硬件</span></a></li></ol></li></ol>
 
 	</div>
 </div>
@@ -750,7 +785,7 @@
                     </span>
                     
                         <span>
-                            759 words in total
+                            2.5k words in total
                         </span>
                     
                 </p>
